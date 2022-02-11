@@ -11,8 +11,6 @@ import LockIcon from '@material-ui/icons/Lock';
 import WorkIcon from '@material-ui/icons/Work';
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom'
-import Login from "./Login";
-
 
 
  
@@ -36,7 +34,7 @@ const Signupform=()=>{
 e.preventDefault();
 
 const {name,email,phone,profession,password,cpassword} = user;
-const res=await fetch("/register",{
+const res=await fetch("http://localhost:6001/register",{
   method:"post",
   headers:{
     "Accept":"application/json",
@@ -49,18 +47,13 @@ const res=await fetch("/register",{
 })
 const data = await res.json();
 console.log(data)
-if(!data)
-{
-  alert("invalid registration");
-  console.log("Invalid registration")
-}else{
-  alert("Successfylly Registered")
-  console.log("Successfylly Registered")
-  navigate("/login");
+alert("Successfylly Registered")
+console.log("Successfylly Registered")
+navigate("/login");
 }
 
 
-   }
+   
 
    
   return(
@@ -69,7 +62,7 @@ if(!data)
 
 
 
- <form method='post'>
+ <form method='post' action='http://localhost:6001/register'>
    <ul type="none">
        <li><PersonIcon /><input className='list' type='text' placeholder='Your Name' name="name" value={user.name} onChange={handleinput} /></li>
 

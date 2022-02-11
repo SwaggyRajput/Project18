@@ -1,42 +1,40 @@
 const mongoose=require("mongoose")
-const bcrypt=require("bcrypt")
-const jwt=require('jsonwebtoken')
+// const bcrypt=require("bcrypt")
+// const jwt=require('jsonwebtoken')
 const registerSchema=mongoose.Schema({
      
     name:{
         type:String,
-        required:true
+        required:false
+        
     },
     email:{
         type:String,
-        required:true,
-        unique:true
+        required:false
+      
     },
     phone:{
-        type:Number,
-        required:true,
-        unique:true
+        type:String,
+        required:false
+    
+
     },
     profession:{
-        type:String,
-        required:true
+        type:Number,
+        required:false
+     
     },
     password:{
         type:String,
-        required:true
+        required:false
+        
     },
     cpassword:{
         type:String,
-        required:true
-    },
-    tokens:[
-        {
-        token: {
-            type:String,
-            required:true
-        }
+        required:false
+        
     }
-    ]
+
 })
 
 // registerSchema.pre('save',async function (next){
@@ -57,6 +55,16 @@ const registerSchema=mongoose.Schema({
 //         console.log(err)
 //     }
 // } 
+
+
+// tokens:[
+//     {
+//     token: {
+//         type:String,
+//         required:true
+//     }
+// }
+// ]
 const Register=new mongoose.model("Register",registerSchema)
 
 module.exports=Register;
