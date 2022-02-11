@@ -5,33 +5,27 @@ const registerSchema=mongoose.Schema({
      
     name:{
         type:String,
-        required:false
-        
+        required:true  
     },
     email:{
         type:String,
-        required:false
-      
+        required:true
     },
     phone:{
         type:String,
-        required:false
-    
-
+        required:true
     },
     profession:{
         type:Number,
-        required:false
-     
+        required:true
     },
     password:{
         type:String,
-        required:false
-        
+        required:true   
     },
     cpassword:{
         type:String,
-        required:false
+        required:true
         
     }
 
